@@ -1,6 +1,5 @@
 package ru.job4j.tracker;
 
-import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 import java.util.Scanner;
 
 public class StartUI {
