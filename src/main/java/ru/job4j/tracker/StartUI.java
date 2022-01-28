@@ -1,14 +1,8 @@
 package ru.job4j.tracker;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-
 public class StartUI {
     public static void main(String[] args) {
-        Item item = new Item();
-        LocalDateTime dateTime = item.getCreated();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss");
-        String dateTimeFormatted = dateTime.format(formatter);
-        System.out.println(dateTimeFormatted);
+        Item item = new Item(1, "John");
+        System.out.println(item);
     }
 }
