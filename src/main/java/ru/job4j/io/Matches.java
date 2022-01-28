@@ -2,6 +2,7 @@ package ru.job4j.io;
 import java.util.Scanner;
 
 public class Matches {
+    @SuppressWarnings("checkstyle:MethodLength")
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.println("Игра 11.");
