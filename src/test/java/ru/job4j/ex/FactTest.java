@@ -13,6 +13,6 @@ public class FactTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void whenNIsLess0ThenFinish() {
-        new Fact().calc( -1);
+        new Fact().calc(-1);
     }
 }
