@@ -1,7 +1,5 @@
 package ru.job4j.tracker;
 
-import java.util.Arrays;
-
 public final class SingleTracker {
     private static Tracker tracker = null;
 
@@ -15,27 +13,14 @@ public final class SingleTracker {
         return tracker;
     }
 
-    public Item add(Item item) {
-        return tracker.add(item);
-    }
-
-    public Item[] findAll() {
-        return tracker.findAll();
-    }
-
-    public Item[] findByName(String key) {
-        return tracker.findByName(key);
-    }
-
-    public Item findById(int id) {
-        return tracker.findById(id);
-    }
-
-    public boolean replace(int id, Item item) {
-        return tracker.replace(id, item);
-    }
-
-    public boolean delete(int id) {
-        return tracker.delete(id);
+    public static void main(String[] args) {
+        Tracker start = SingleTracker.getTracker();
+        Item item = new Item("test");
+        start.add(item);
+        start.findAll();
+        start.findByName("test");
+        start.findById(0);
+        start.replace(0, item);
+        start.delete(0);
     }
 }
