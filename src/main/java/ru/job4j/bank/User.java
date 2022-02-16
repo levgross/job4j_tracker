@@ -2,7 +2,15 @@ package ru.job4j.bank;
 
 import java.util.Objects;
 
+/**
+ * Класс описывает объект User - клиент банка
+ * @author Grossevich Lev
+ * @version 1.0
+ */
 public class User {
+    /**
+     * Объект имеет 2 поля номер паспорта клиента и имя клиента
+     */
     private String passport;
     private String username;
 
@@ -27,6 +35,11 @@ public class User {
         this.username = username;
     }
 
+    /**
+     * Метод переопределяет метод equals
+     * Сравнение по номеру пасспорта
+     * @return  номер паспорта клиента
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -39,6 +52,10 @@ public class User {
         return Objects.equals(passport, user.passport);
     }
 
+    /**
+     * Метод переопределяет метод hashCode
+     * @return Ключом является номер паспорта клиента
+     */
     @Override
     public int hashCode() {
         return Objects.hash(passport);

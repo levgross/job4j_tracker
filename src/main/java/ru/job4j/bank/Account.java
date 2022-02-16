@@ -2,7 +2,15 @@ package ru.job4j.bank;
 
 import java.util.Objects;
 
+/**
+ * Класс описывает объект Account - счёт клиента
+ * @author Grossevich Lev
+ * @version 1.0
+ */
 public class Account {
+    /**
+     * Объект имеет 2 поля реквизиты счета и баланс счета
+     */
     private String requisite;
     private double balance;
 
@@ -39,6 +47,10 @@ public class Account {
         return Objects.equals(requisite, account.requisite);
     }
 
+    /**
+     * Метод переопределяет метод hashCode
+     * @return Ключом являются реквизиты счета
+     */
     @Override
     public int hashCode() {
         return Objects.hash(requisite);
