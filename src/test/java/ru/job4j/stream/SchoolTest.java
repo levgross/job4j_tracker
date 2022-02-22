@@ -29,7 +29,7 @@ public class SchoolTest {
         expected.add(new Student("Surname9", 90));
         assertThat(rsl, is(expected));
     }
-    @Ignore
+
     @Test
     public void whenCollectClassB() {
         List<Student> students = List.of(
@@ -47,7 +47,7 @@ public class SchoolTest {
         expected.add(new Student("Surname6", 60));
         assertThat(rsl, is(expected));
     }
-    @Ignore
+
     @Test
     public void whenCollectClassV() {
         List<Student> students = List.of(
