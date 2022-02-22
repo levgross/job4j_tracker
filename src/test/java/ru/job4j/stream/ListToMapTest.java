@@ -14,32 +14,32 @@ public class ListToMapTest {
     @Test
     public void whenInputListNotHaveDuplicate() {
         List<Student> list = Arrays.asList(
-                new Student(30, "Ivanov"),
-                new Student(40, "Petrov"),
-                new Student(50, "Sidorov")
+                new Student("Ivanov", 30),
+                new Student("Petrov", 40),
+                new Student("Sidorov", 50)
         );
         Map<String, Student> result = ListToMap.convert(list);
         Map<String, Student> expected = new LinkedHashMap<>();
-        expected.put("Ivanov", new Student(30, "Ivanov"));
-        expected.put("Petrov", new Student(40, "Petrov"));
-        expected.put("Sidorov", new Student(50, "Sidorov"));
+        expected.put("Ivanov", new Student("Ivanov", 30));
+        expected.put("Petrov", new Student("Petrov", 40));
+        expected.put("Sidorov", new Student("Sidorov", 50));
         assertEquals(expected, result);
     }
 
     @Test
     public void whenInputListHaveDuplicate() {
         List<Student> list = Arrays.asList(
-                new Student(30, "Ivanov"),
-                new Student(40, "Petrov"),
-                new Student(50, "Ivanov"),
-                new Student(60, "Sidorov"),
-                new Student(70, "Petrov")
+                new Student("Ivanov", 30),
+                new Student("Petrov", 40),
+                new Student("Ivanov", 50),
+                new Student("Sidorov", 60),
+                new Student("Petrov", 70)
         );
         Map<String, Student> result = ListToMap.convert(list);
         Map<String, Student> expected = new LinkedHashMap<>();
-        expected.put("Ivanov", new Student(30, "Ivanov"));
-        expected.put("Petrov", new Student(40, "Petrov"));
-        expected.put("Sidorov", new Student(60, "Sidorov"));
+        expected.put("Ivanov", new Student("Ivanov", 30));
+        expected.put("Petrov", new Student("Petrov", 40));
+        expected.put("Sidorov", new Student("Sidorov", 60));
         assertEquals(expected, result);
     }
 }
