@@ -1,20 +1,20 @@
 package ru.job4j.tracker;
 
 public final class SingleTracker {
-    private static Tracker tracker = null;
+    private static MemTracker tracker = null;
 
     private SingleTracker() {
     }
 
-    public static Tracker getTracker() {
+    public static MemTracker getTracker() {
         if (tracker == null) {
-            tracker = new Tracker();
+            tracker = new MemTracker();
         }
         return tracker;
     }
 
     public static void main(String[] args) {
-        Tracker start = SingleTracker.getTracker();
+        MemTracker start = SingleTracker.getTracker();
         Item item = new Item("test");
         start.add(item);
         start.findAll();
