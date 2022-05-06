@@ -61,6 +61,4 @@ public class SqlTrackerTest {
         tracker.add(item);
         assertTrue(tracker.delete(item.getId()));
     }
-
-
 }
