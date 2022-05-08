@@ -61,6 +61,7 @@ public class SqlTrackerTest {
         Item item = new Item("item");
         tracker.add(item);
         assertTrue(tracker.delete(item.getId()));
+        assertNull(tracker.findById(item.getId()));
     }
 
     @Test
@@ -82,10 +83,7 @@ public class SqlTrackerTest {
         tracker.add(item);
         tracker.add(item1);
         tracker.add(item2);
-        List<Item> items = List.of(
-                tracker.findById(item.getId()),
-                tracker.findById(item1.getId())
-        );
+        List<Item> items = List.of(item, item1);
         assertEquals(items, tracker.findByName("item"));
     }
 
@@ -98,11 +96,7 @@ public class SqlTrackerTest {
         tracker.add(item);
         tracker.add(item1);
         tracker.add(item2);
-        List<Item> items = List.of(
-                tracker.findById(item.getId()),
-                tracker.findById(item1.getId()),
-                tracker.findById(item2.getId())
-        );
+        List<Item> items = List.of(item, item1, item2);
         assertEquals(items, tracker.findAll());
     }
 }
