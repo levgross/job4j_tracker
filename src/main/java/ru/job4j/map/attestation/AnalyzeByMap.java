@@ -1,7 +1,6 @@
 package ru.job4j.map.attestation;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class AnalyzeByMap {
     public static double averageScore(List<Pupil> pupils) {
@@ -14,7 +13,7 @@ public class AnalyzeByMap {
                 count++;
             }
         }
-        return count == 0 ? null : sum / count;
+        return count == 0 ? 0D : sum / count;
     }
 
     public static List<Label> averageScoreByPupil(List<Pupil> pupils) {
@@ -27,7 +26,7 @@ public class AnalyzeByMap {
                 sum += subject.score();
                 count++;
             }
-            resList.add(new Label(pupil.name(), count == 0 ? null : sum / count));
+            resList.add(new Label(pupil.name(), count == 0 ? 0D : sum / count));
         }
         return resList;
     }
@@ -38,11 +37,7 @@ public class AnalyzeByMap {
         for (var pupil : pupils) {
             var subjects = pupil.subjects();
             for (var subject : subjects) {
-                if (subjectsMap.containsKey(subject.name())) {
-                    subjectsMap.replace(subject.name(), subjectsMap.get(subject.name()) + subject.score());
-                } else {
-                    subjectsMap.put(subject.name(), subject.score());
-                }
+                subjectsMap.merge(subject.name(), subject.score(), Integer::sum);
             }
         }
         for (var subject : subjectsMap.keySet()) {
@@ -71,11 +66,7 @@ public class AnalyzeByMap {
         for (var pupil : pupils) {
             var subjects = pupil.subjects();
             for (var subject : subjects) {
-                if (subjectsMap.containsKey(subject.name())) {
-                    subjectsMap.replace(subject.name(), subjectsMap.get(subject.name()) + subject.score());
-                } else {
-                    subjectsMap.put(subject.name(), subject.score());
-                }
+                subjectsMap.merge(subject.name(), subject.score(), Integer::sum);
             }
         }
         for (var subject : subjectsMap.keySet()) {
