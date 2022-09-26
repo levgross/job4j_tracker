@@ -1,7 +1,6 @@
 package ru.job4j.tracker;
 
 import org.junit.*;
-import org.junit.jupiter.api.Disabled;
 
 import java.io.InputStream;
 import java.sql.Connection;
@@ -14,7 +13,6 @@ import java.util.Properties;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.*;
 
-@Disabled
 public class SqlTrackerTest {
     private static Connection connection;
 
