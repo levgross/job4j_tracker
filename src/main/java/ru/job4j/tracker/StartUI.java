@@ -34,10 +34,13 @@ public class StartUI {
     public static void main(String[] args) {
         Output output = new ConsoleOutput();
         Input input = new ValidateInput(output, new ConsoleInput());
-        Store tracker = new MemTracker();
+        Store tracker = new HbmTracker();
             List<UserAction> actions = List.of(
-                    new CreateManyAction(output),
-                    new DeleteManyAction(output),
+                    new CreateAction(output),
+                    new DeleteAction(output),
+                    new ReplaceAction(output),
+                    new FindByIdAction(output),
+                    new FindByNameAction(output),
                     new FindAllAction(output),
                     new ExitAction(output)
             );
