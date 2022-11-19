@@ -15,6 +15,10 @@ public class HbmTracker implements Store, AutoCloseable {
     private final SessionFactory sf = new MetadataSources(registry)
             .buildMetadata().buildSessionFactory();
 
+    public SessionFactory getSf() {
+        return sf;
+    }
+
     @Override
     public Item add(Item item) {
         Session session = sf.openSession();
@@ -56,8 +60,8 @@ public class HbmTracker implements Store, AutoCloseable {
         try {
             session.beginTransaction();
             rsl = session.createQuery(
-                            "DELETE Item WHERE id = :iId")
-                    .setParameter("iId", id)
+                            "DELETE FROM Item WHERE id = :fId")
+                    .setParameter("fId", id)
                     .executeUpdate();
             session.getTransaction().commit();
             session.close();

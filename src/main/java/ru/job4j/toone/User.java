@@ -4,6 +4,7 @@ import lombok.*;
 import lombok.EqualsAndHashCode.Include;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -19,7 +20,7 @@ public class User {
     @ManyToOne
     @JoinColumn(name = "role_id")
     private Role role;
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "j_user_id")
-    private List<UserMessenger> messengers;
+    private List<UserMessenger> messengers = new ArrayList<>();
 }
